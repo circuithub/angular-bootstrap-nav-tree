@@ -15,9 +15,6 @@ module.directive 'abnTree',($timeout)->
     attrs.iconExpand   ?= 'icon-plus'    
     attrs.iconCollapse ?= 'icon-minus'
     attrs.iconLeaf     ?= 'icon-chevron-right'
-    attrs.expandLevel  ?= '3'
-
-    expand_level = parseInt attrs.expandLevel,10
 
     scope.header = attrs.header
 
@@ -48,9 +45,11 @@ module.directive 'abnTree',($timeout)->
     #
     # expand to the proper level
     #
-    for_each_branch (b,level)->
-      b.level = level
-      b.expanded = b.level < expand_level
+    if attrs.expandLevel?
+      expand_level = parseInt attrs.expandLevel,10
+      for_each_branch (b,level)->
+        b.level = level
+        b.expanded = b.level < expand_level
 
     
     #
