@@ -1,3 +1,5 @@
+Forked from christianw/angular-bootstrap-nav-tree as original 
+nickperkinslondon/angular-bootstrap-nav-tree's indenting seems not to be working correctly
 
 angular-bootstrap-nav-tree
 ==========================
