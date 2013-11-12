@@ -120,8 +120,8 @@ module.directive 'abnTree',($timeout)->
                 children:[]
               else
                 e
-        else
-          branch.children = []
+        # else
+        #   branch.children = []
 
       # give each Branch a UID ( to keep AngularJS happy )
       for_each_branch (b,level)->
@@ -143,7 +143,7 @@ module.directive 'abnTree',($timeout)->
         # they will be rendered like:
         # <i class="icon-plus"></i>
         #
-        if not branch.children or branch.children.length == 0 
+        if not branch.children #or branch.children.length == 0 
           tree_icon = attrs.iconLeaf
         else
           if branch.expanded

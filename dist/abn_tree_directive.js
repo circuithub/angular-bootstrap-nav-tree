@@ -22,10 +22,6 @@ module.directive('abnTree', function($timeout) {
       if (attrs.iconLeaf == null) {
         attrs.iconLeaf = 'icon-chevron-right';
       }
-      if (attrs.expandLevel == null) {
-        attrs.expandLevel = '3';
-      }
-      expand_level = parseInt(attrs.expandLevel, 10);
       scope.header = attrs.header;
       if (!scope.treeData) {
         alert('no treeData defined for the tree!');
@@ -60,10 +56,13 @@ module.directive('abnTree', function($timeout) {
         }
         return _results;
       };
-      for_each_branch(function(b, level) {
-        b.level = level;
-        return b.expanded = b.level < expand_level;
-      });
+      if (attrs.expandLevel != null) {
+        expand_level = parseInt(attrs.expandLevel, 10);
+        for_each_branch(function(b, level) {
+          b.level = level;
+          return b.expanded = b.level < expand_level;
+        });
+      }
       selected_branch = null;
       select_branch = function(branch) {
         if (branch !== selected_branch) {
@@ -110,8 +109,6 @@ module.directive('abnTree', function($timeout) {
                 }
               });
             }
-          } else {
-            return branch.children = [];
           }
         });
         for_each_branch(function(b, level) {
@@ -124,7 +121,7 @@ module.directive('abnTree', function($timeout) {
           if (branch.expanded == null) {
             branch.expanded = false;
           }
-          if (!branch.children || branch.children.length === 0) {
+          if (!branch.children) {
             tree_icon = attrs.iconLeaf;
           } else {
             if (branch.expanded) {
