@@ -2,14 +2,14 @@
 <html ng-app="AbnTest">
   <head>
     <!-- Bootstrap 2-->
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css">
     <!--script(src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js")-->
     <!-- Angular JS-->
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.js"></script>
     <!-- Font Awesome (optional)-->
     <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
     <!-- Live Reload ( for development )-->
-    <xscript src="http://localhost:35729/livereload.js"></script>
+    <script src="http://localhost:35729/livereload.js"></script>
     <!--/-->
     <!-- abn-tree ( the thing we are testing )-->
     <!---->
@@ -21,19 +21,19 @@
   <body ng-controller="AbnTestController">
     <button ng-click="change()">Change</button>
     <div class="row">
-      <div class="col-md-2"></div>
-      <div class="col-md-10">
+      <div class="span2"></div>
+      <div class="span10">
         <h2>angular-bootstrap-nav-tree</h2>
         <h6>by Nick Perkins</h6><a href="https://github.com/nickperkinslondon/angular-bootstrap-nav-tree">The code is on Github</a>
       </div>
     </div>
     <div class="row"><br></div>
     <div class="row">
-      <div class="col-md-2"></div>
-      <div class="col-md-4 well">
+      <div class="span2"></div>
+      <div class="span4 well">
         <abn-tree header="This is the example tree" tree-data="example_treedata" icon-leaf="icon-file" on-select="my_default_handler(branch)" expand-level="2" initial-selection="Vegetable"></abn-tree>
       </div>
-      <div class="col-md-8 well">
+      <div class="span8 well">
         <div class="alert">{{ output }}</div>
         <!--pre {{ example_treedata | json }}-->
       </div>
